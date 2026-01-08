@@ -6,6 +6,8 @@
 }
 
 @theme inline {
+  --color-primary: #0041ae;
+  --color-secondary: #0065ea;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
@@ -19,8 +21,41 @@
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+* {
+  font-family: var(--font-plus-jakarta-sans);
+  box-sizing: border-box;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0000;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #fff3;
+  border-radius: 4px;
+}
+
+.ant-menu {
+  border-right: 0 !important;
+}
+
+.ant-menu .ant-menu-item {
+  padding: 8px 20px !important;
+  height: auto !important;
+  font-size: 12px !important;
+  line-height: normal !important;
+}
+
+.ant-btn {
+  font-size: 13px !important;
+  height: auto !important;
+  padding: 6px 16px !important;
+}
+
+.ant-table-thead .ant-table-cell {
+  border-right: 0 !important;
 }
