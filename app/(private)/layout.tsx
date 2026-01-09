@@ -28,7 +28,7 @@ const layout = ({ children }: Props) => {
       </Sider>
       <Layout>
         <Header className="border-b border-black/10">Header</Header>
-        <Content className="h-[calc(100%-64px)] p-6 ">{children}</Content>
+        <Content className="h-[calc(100%-64px)] p-6">{children}</Content>
         {/* <Footer>Footer</Footer> */}
       </Layout>
     </Layout>

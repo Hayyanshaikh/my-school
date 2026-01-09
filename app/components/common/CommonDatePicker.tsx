@@ -3,7 +3,6 @@
 import React from "react";
 import { DatePicker, Form } from "antd";
 import type { Dayjs } from "dayjs";
-import "antd/dist/reset.css";
 
 type Props = {
   name?: string;
