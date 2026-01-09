@@ -24,6 +24,7 @@ const CommonSearch = ({
 }: Props) => {
   return (
     <Search
+      className="w-full"
       placeholder={placeholder}
       onSearch={onSearch}
       onChange={onChange}

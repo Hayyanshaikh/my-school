@@ -48,8 +48,7 @@ export default function RootLayout({
                 },
               },
               token: {
-                // fontSize: 14,
-                borderRadius: 6,
+                borderRadius: 4,
                 colorPrimary: "#0041ae",
               },
             }}

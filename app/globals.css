@@ -3,6 +3,7 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --table-radius: 4px;
 }
 
 @theme inline {
@@ -39,6 +40,11 @@
   border-radius: 4px;
 }
 
+
+.ant-input {
+  font-family: var(--font-plus-jakarta-sans) !important;
+}
+
 .ant-menu {
   border-right: 0 !important;
 }
@@ -56,6 +62,62 @@
   padding: 6px 16px !important;
 }
 
+.ant-btn-link {
+  padding: 0 !important;
+  color: #222 !important;
+}
+
 .ant-table-thead .ant-table-cell {
   border-right: 0 !important;
+}
+
+.ant-table-container {
+  border-start-start-radius: var(--table-radius) !important;
+  border-start-end-radius: var(--table-radius) !important;
+  border-end-start-radius: var(--table-radius) !important;
+  border-end-end-radius: var(--table-radius) !important;
+  overflow: hidden !important;
+}
+
+.ant-table-container table {
+  border-radius: var(--table-radius) !important;
+}
+
+.ant-table-container table>thead>tr:first-child>*:first-child {
+  border-start-start-radius: var(--table-radius) !important;
+}
+
+.ant-table-container table>thead>tr:first-child>*:last-child {
+  border-start-end-radius: var(--table-radius) !important;
+}
+
+.ant-table-container table>tbody>tr:last-child>*:first-child {
+  border-end-start-radius: var(--table-radius) !important;
+}
+
+.ant-table-container table>tbody>tr:last-child>*:last-child {
+  border-end-end-radius: var(--table-radius) !important;
+}
+
+.icon_button {
+  background-color: #daebff !important;
+  border: none !important;
+}
+
+.icon_button svg {
+  fill: #0042ad !important;
+}
+
+.ant-tooltip-container {
+  display: flex;
+  font-size: 12px;
+  padding: 4px 10px !important;
+  line-height: 1.5 !important;
+  align-items: center;
+  justify-content: center;
+  min-height: auto !important;
+}
+
+.ant-form-item-label {
+  padding-bottom: 4px !important;
 }

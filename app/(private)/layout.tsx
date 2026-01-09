@@ -16,7 +16,7 @@ const layout = ({ children }: Props) => {
     <Layout>
       <Sider
         style={{ background: "#fff" }}
-        className="h-screen overflow-auto shadow-md"
+        className="h-screen overflow-auto border-r border-black/10"
       >
         <Link
           href="/"
@@ -27,7 +27,7 @@ const layout = ({ children }: Props) => {
         <SidebarMenu />
       </Sider>
       <Layout>
-        <Header>Header</Header>
+        <Header className="border-b border-black/10">Header</Header>
         <Content className="h-[calc(100%-64px)] p-6 ">{children}</Content>
         {/* <Footer>Footer</Footer> */}
       </Layout>

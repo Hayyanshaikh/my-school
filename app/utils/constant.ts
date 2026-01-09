@@ -1,3 +1,4 @@
+export const DISPLAY_DATE = "DD MMM YYYY";
 export const menuItems = [
   { label: "Dashboard", link: "/" },
   { label: "Students List", link: "/students" },
@@ -11,4 +12,9 @@ export const menuItems = [
   { label: "Fee Status", link: "/fee-status" },
   { label: "Notifications", link: "/notifications" },
   { label: "School Info", link: "/school-settings" },
+];
+
+export const STATUS_OPTIONS = [
+  { label: "Active", value: "Active" },
+  { label: "Inactive", value: "Inactive" },
 ];

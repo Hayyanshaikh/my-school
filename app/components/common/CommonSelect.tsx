@@ -1,33 +1,38 @@
 "use client";
 
 import React from "react";
-import { Input, Form } from "antd";
+import { Select, Form } from "antd";
+
+type CommonSelectOption = {
+  label: string;
+  value: string | number;
+};
 
 type Props = {
   name: string;
   label?: string;
   rules?: any[];
   isRequired?: boolean;
+  options: CommonSelectOption[];
   placeholder?: string;
-  type?: "text" | "password" | "email" | "number";
   disabled?: boolean;
-  maxLength?: number;
   allowClear?: boolean;
+  mode?: "multiple" | "tags" | undefined;
   size?: "small" | "middle" | "large";
 };
 
-const CommonInput = ({
+const CommonSelect: React.FC<Props> = ({
   name,
   label,
-  rules = [],
   isRequired = true,
-  placeholder = "Type here",
-  type = "text",
+  rules,
+  options,
+  placeholder = "Select",
   disabled = false,
-  maxLength,
   allowClear = true,
+  mode,
   size = "middle",
-}: Props) => {
+}) => {
   return (
     <Form.Item
       layout="vertical"
@@ -37,20 +42,23 @@ const CommonInput = ({
       className="mb-0!"
       rules={
         isRequired
-          ? [{ required: true, message: `${label} is required.` }, ...rules]
+          ? [
+              { required: true, message: `${label} is required.` },
+              ...(rules || []),
+            ]
           : rules
       }
     >
-      <Input
+      <Select
+        options={options}
         placeholder={placeholder}
-        type={type}
         disabled={disabled}
-        maxLength={maxLength}
         allowClear={allowClear}
+        mode={mode}
         size={size}
       />
     </Form.Item>
   );
 };
 
-export default CommonInput;
+export default CommonSelect;
