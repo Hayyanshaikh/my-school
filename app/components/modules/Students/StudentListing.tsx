@@ -61,20 +61,20 @@ const StudentListing = (props: Props) => {
       title: "Admission Date",
       dataIndex: "admissionDate",
       key: "admissionDate",
-      render: (text) => dayjs(text).format(DISPLAY_DATE),
+      render: (text: string) => dayjs(text).format(DISPLAY_DATE),
     },
     {
       title: "Status",
       dataIndex: "status",
       key: "status",
-      render: (text) => <CommonStatusTag status={text === "Active"} />,
+      render: (text: string) => <CommonStatusTag status={text === "Active"} />,
     },
     {
       title: "View",
       key: "action",
       width: "1%",
       fixed: "right",
-      render: (record) => (
+      render: (record: any) => (
         <CommonActionButtons
           editLink={ROUTES.students.update.replace(":id", record.id)}
           onDelete={() => {
