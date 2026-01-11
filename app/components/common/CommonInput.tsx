@@ -32,7 +32,7 @@ const CommonInput = ({
     <Form.Item
       layout="vertical"
       name={name}
-      label={<span className="text-xs text-gray-600 font-medium">{label}</span>}
+      label={<span className="text-gray-600 font-medium">{label}</span>}
       required={isRequired}
       className="mb-0!"
       rules={
@@ -42,7 +42,7 @@ const CommonInput = ({
       }
     >
       <Input
-        placeholder={placeholder}
+        placeholder={disabled ? "" : placeholder}
         type={type}
         disabled={disabled}
         maxLength={maxLength}

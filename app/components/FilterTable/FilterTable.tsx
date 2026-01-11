@@ -13,6 +13,7 @@ import { useSearchParams } from "next/navigation";
 import CommonInput from "../common/CommonInput";
 import CommonSelect from "../common/CommonSelect";
 import CommonDatePicker from "../common/CommonDatePicker";
+import FilterDrawer from "./FilterDrawer";
 
 export type FilterFields = {
   name: string;
@@ -49,9 +50,7 @@ const FilterTable = ({
 
   return (
     <>
-      <div className="flex items-center justify-between mb-5">
-        <CommonTitle title={title} />
-      </div>
+      <CommonTitle title={title} />
 
       <div className="flex items-center justify-between mb-2">
         <div className="max-w-[350px] w-full">
@@ -81,87 +80,19 @@ const FilterTable = ({
 
       <Table
         bordered
+        pagination={false}
         columns={columns}
         rowKey={(record) => record.id}
         dataSource={dataSource}
         scroll={{
           x: "max-content",
+          y: "calc(100vh - 240px)",
         }}
         rowClassName={(_, index) =>
           index % 2 === 0 ? "bg-white" : "bg-gray-50"
         }
       />
-      <CommonDrawer
-        size="large"
-        open={open}
-        footer={
-          <>
-            <CommonButton
-              type="default"
-              title="Reset"
-              onClick={() => form.resetFields()}
-            />
-            <CommonButton title="Apply" />
-          </>
-        }
-        closeIcon={false}
-        title="Advance Filter"
-        onClose={() => setOpen(false)}
-      >
-        <Form form={form} className="flex flex-col gap-2">
-          {filterFields.map((field: FilterFields, index: number) => {
-            switch (field.type) {
-              case "select":
-                return (
-                  <CommonSelect
-                    key={index}
-                    name={field.name}
-                    isRequired={false}
-                    label={field.label}
-                    placeholder={field.placeholder}
-                    options={field.options || []}
-                  />
-                );
-
-              case "multiselect":
-                return (
-                  <CommonSelect
-                    key={index}
-                    name={field.name}
-                    isRequired={false}
-                    label={field.label}
-                    placeholder={field.placeholder}
-                    options={field.options || []}
-                    mode="multiple"
-                  />
-                );
-
-              case "date":
-                return (
-                  <CommonDatePicker
-                    key={index}
-                    name={field.name}
-                    isRequired={false}
-                    label={field.label}
-                    placeholder={field.placeholder}
-                  />
-                );
-
-              default:
-                // text input
-                return (
-                  <CommonInput
-                    key={index}
-                    name={field.name}
-                    isRequired={false}
-                    label={field.label}
-                    placeholder={field.placeholder}
-                  />
-                );
-            }
-          })}
-        </Form>
-      </CommonDrawer>
+      <FilterDrawer open={open} setOpen={setOpen} filterFields={filterFields} />
     </>
   );
 };

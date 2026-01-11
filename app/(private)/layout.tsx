@@ -13,14 +13,14 @@ type Props = {
 
 const layout = ({ children }: Props) => {
   return (
-    <Layout>
+    <Layout className="flex h-screen ">
       <Sider
         style={{ background: "#fff" }}
-        className="h-screen overflow-auto border-r border-black/10"
+        className="overflow-auto border-r border-black/10"
       >
         <Link
           href="/"
-          className="block sticky top-0 z-10 text-lg font-bold px-5 py-3 text-primary! border-b  border-white/10"
+          className="block text-lg font-bold px-5 py-3 text-primary! border-b  border-white/10"
         >
           My School
         </Link>
@@ -28,7 +28,9 @@ const layout = ({ children }: Props) => {
       </Sider>
       <Layout>
         <Header className="border-b border-black/10">Header</Header>
-        <Content className="h-[calc(100%-64px)] p-6 ">{children}</Content>
+        <Content className="h-full! overflow-auto! p-6 flex flex-col">
+          {children}
+        </Content>
         {/* <Footer>Footer</Footer> */}
       </Layout>
     </Layout>

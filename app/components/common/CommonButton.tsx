@@ -10,6 +10,7 @@ type Props = {
   loading?: boolean;
   className?: string;
   icon?: React.ReactNode;
+  htmlType?: "button" | "submit" | "reset";
   disabled?: boolean;
   type?: "primary" | "default" | "dashed" | "link" | "text";
   link?: string;
@@ -23,6 +24,7 @@ const CommonButton = ({
   type = "primary",
   className,
   icon,
+  htmlType,
   link,
 }: Props) => {
   if (link) {
@@ -30,9 +32,10 @@ const CommonButton = ({
       <Link href={link}>
         <Button
           icon={icon}
-          type="link"
+          htmlType={htmlType}
+          type={type}
           disabled={disabled}
-          className={className}
+          className={`${className} min-w-28`}
         >
           {title}
         </Button>
@@ -45,9 +48,10 @@ const CommonButton = ({
       icon={icon}
       type={type}
       onClick={onClick}
+      htmlType={htmlType}
       loading={loading}
       disabled={disabled}
-      className={className}
+      className={`${className} min-w-28`}
     >
       {title}
     </Button>
