@@ -4,11 +4,13 @@ import React from "react";
 import { Button, Space } from "antd";
 import { EditOutlined, DeleteOutlined } from "@ant-design/icons";
 import CommonToolTip from "./CommonToolTip";
+import Link from "next/link";
 
 type Props = {
   showEdit?: boolean;
   showDelete?: boolean;
   onEdit?: () => void;
+  editLink?: string;
   onDelete?: () => void;
   customAction?: React.ReactNode;
 };
@@ -17,6 +19,7 @@ const CommonActionButtons = ({
   showEdit = true,
   showDelete = true,
   onEdit,
+  editLink,
   onDelete,
   customAction,
 }: Props) => {
@@ -24,12 +27,21 @@ const CommonActionButtons = ({
     <Space>
       {showEdit && (
         <CommonToolTip content="Edit">
-          <Button
+
+          {editLink ? (<Link href={editLink || ""}>
+            <Button
+              className="icon_button h-7! w-7! p-0!"
+              size="small"
+              icon={<EditOutlined />}
+              onClick={onEdit}
+            />
+          </Link>) : (<Button
             className="icon_button h-7! w-7! p-0!"
             size="small"
             icon={<EditOutlined />}
             onClick={onEdit}
-          />
+          />)}
+
         </CommonToolTip>
       )}
 

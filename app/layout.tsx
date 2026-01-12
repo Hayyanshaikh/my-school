@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { Plus_Jakarta_Sans } from "next/font/google";
-import "./globals.css";
 import { AntdRegistry } from "@ant-design/nextjs-registry";
 import { ConfigProvider } from "antd";
+import "./globals.css";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   variable: "--font-plus-jakarta-sans",
@@ -11,7 +11,10 @@ const plusJakartaSans = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "My School",
+  title: {
+    default: "My School",
+    template: "%s | My School",
+  },
   description: "My School",
 };
 
@@ -44,7 +47,6 @@ export default function RootLayout({
                 },
                 Table: {
                   cellPaddingBlock: 8,
-                  fontSize: 12,
                   headerBg: "#e9f1ff",
                 },
               },
