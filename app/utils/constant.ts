@@ -6,6 +6,11 @@ export const ROUTES = {
     create: "/students/create",
     update: "/students/update/:id",
   },
+  classes: {
+    listing: "/classes",
+    create: "/classes/create",
+    update: "/classes/update/:id",
+  },
 };
 
 export const menuItems = [
@@ -44,6 +49,27 @@ export const studentData = Array.from({ length: 100 }, (_, i) => {
     contact: `0300-${String(1000000 + id).slice(0, 7)}`,
     admissionDate: `2025-01-${String((i % 28) + 1).padStart(2, "0")}`,
     status: statuses[i % statuses.length],
+  };
+});
+
+export const classData = Array.from({ length: 20 }, (_, i) => {
+  const id = i + 1;
+
+  const shifts = ["Morning", "Evening"];
+  const statuses = ["Active", "Inactive"];
+  const sectionsList = [["A", "B"], ["A"], ["A", "B", "C"]];
+  const teachers = ["Ali Ahmed", "Sara Khan", "Usman Malik", "Ayesha Noor"];
+
+  return {
+    id,
+    code: `CLS-${String(id).padStart(3, "0")}`,
+    name: `Class ${id}`,
+    shift: shifts[i % shifts.length],
+    status: statuses[i % statuses.length],
+    sections: sectionsList[i % sectionsList.length],
+    classTeacher: teachers[i % teachers.length],
+    roomNo: `R-${(i % 10) + 1}`,
+    maxStrength: 30 + (i % 10),
   };
 });
 
