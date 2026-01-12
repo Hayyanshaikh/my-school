@@ -6,13 +6,9 @@ import CommonButton from "../common/CommonButton";
 import CommonSearch from "../common/CommonSearch";
 import FilterIcon from "@/app/icons/FilterIcon";
 import { PlusOutlined } from "@ant-design/icons";
-import { Divider, Form, Table } from "antd";
-import { ColumnType } from "antd/es/table";
-import CommonDrawer from "../common/CommonDrawer";
+import { Divider, Table } from "antd";
+import { ColumnType, TablePaginationConfig } from "antd/es/table";
 import { useSearchParams } from "next/navigation";
-import CommonInput from "../common/CommonInput";
-import CommonSelect from "../common/CommonSelect";
-import CommonDatePicker from "../common/CommonDatePicker";
 import FilterDrawer from "./FilterDrawer";
 
 export type FilterFields = {
@@ -23,13 +19,17 @@ export type FilterFields = {
   type: "text" | "select" | "multiselect" | "date";
 };
 
-type Props = {
+export type FilterTableProps = {
   title: string;
   buttonTitle: string;
   columns: ColumnType[];
   dataSource: any[];
   createLink?: string;
   filterFields?: FilterFields[];
+  pageSize?: number;
+  currentPage?: number;
+  total?: number;
+  onPageChange?: (page: number, pageSize: number) => void;
 };
 
 const FilterTable = ({
@@ -39,14 +39,30 @@ const FilterTable = ({
   dataSource,
   createLink = "",
   filterFields = [],
-}: Props) => {
-  const [form] = Form.useForm();
+  pageSize = 10,
+  currentPage = 1,
+  total,
+  onPageChange,
+}: FilterTableProps) => {
   const params = useSearchParams();
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
     setOpen(params.get("filter") === "true");
   }, [params]);
+
+  const pagination: TablePaginationConfig = {
+    pageSize: pageSize || 10,
+    current: currentPage || 1,
+    total: total ?? dataSource.length,
+    showSizeChanger: true,
+    showQuickJumper: false,
+    placement: ["bottomCenter"],
+    showTotal: (total) => `Total ${total}`,
+    onChange: (page, size) => {
+      onPageChange?.(page, size);
+    },
+  };
 
   return (
     <>
@@ -79,18 +95,19 @@ const FilterTable = ({
       </div>
 
       <Table
-        pagination={false}
         bordered
+        className="border-b border-gray-100"
         columns={columns}
         rowKey={(record) => record.id}
         dataSource={dataSource}
         scroll={{
           x: "max-content",
-          y: "calc(100vh - 240px)",
+          y: "calc(100vh - 330px)",
         }}
         rowClassName={(_, index) =>
           index % 2 === 0 ? "bg-white" : "bg-gray-50"
         }
+        pagination={pagination}
       />
       <FilterDrawer open={open} setOpen={setOpen} filterFields={filterFields} />
     </>

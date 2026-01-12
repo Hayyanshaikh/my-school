@@ -9,13 +9,14 @@ type CommonSelectOption = {
 };
 
 type Props = {
-  name: string;
+  name?: string;
   label?: string;
   rules?: any[];
   isRequired?: boolean;
   options: CommonSelectOption[];
   placeholder?: string;
   disabled?: boolean;
+  isForm?: boolean;
   allowClear?: boolean;
   mode?: "multiple" | "tags" | undefined;
   size?: "small" | "middle" | "large";
@@ -30,10 +31,11 @@ const CommonSelect: React.FC<Props> = ({
   placeholder = "Select",
   disabled = false,
   allowClear = true,
+  isForm = true,
   mode,
   size = "middle",
 }) => {
-  return (
+  return isForm ? (
     <Form.Item
       layout="vertical"
       name={name}
@@ -58,6 +60,15 @@ const CommonSelect: React.FC<Props> = ({
         size={size}
       />
     </Form.Item>
+  ) : (
+    <Select
+      options={options}
+      placeholder={placeholder}
+      disabled={disabled}
+      allowClear={allowClear}
+      mode={mode}
+      size={size}
+    />
   );
 };
 

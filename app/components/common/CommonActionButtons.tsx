@@ -27,28 +27,30 @@ const CommonActionButtons = ({
     <Space>
       {showEdit && (
         <CommonToolTip content="Edit">
-
-          {editLink ? (<Link href={editLink || ""}>
+          {editLink ? (
+            <Link href={editLink || ""}>
+              <Button
+                className="icon_button h-8! w-8! p-0! text-lg!"
+                size="small"
+                icon={<EditOutlined />}
+                onClick={onEdit}
+              />
+            </Link>
+          ) : (
             <Button
-              className="icon_button h-7! w-7! p-0!"
+              className="icon_button h-8! w-8! p-0! text-lg!"
               size="small"
               icon={<EditOutlined />}
               onClick={onEdit}
             />
-          </Link>) : (<Button
-            className="icon_button h-7! w-7! p-0!"
-            size="small"
-            icon={<EditOutlined />}
-            onClick={onEdit}
-          />)}
-
+          )}
         </CommonToolTip>
       )}
 
       {showDelete && (
         <CommonToolTip content="Delete">
           <Button
-            className="icon_button bg-red-200! **:fill-red-800! h-7! w-7! p-0!"
+            className="icon_button bg-red-200! **:fill-red-800! h-8! w-8! p-0! text-lg!"
             size="small"
             icon={<DeleteOutlined />}
             onClick={onDelete}

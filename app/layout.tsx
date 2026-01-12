@@ -46,13 +46,15 @@ export default function RootLayout({
                   footerPadding: "16px 24px",
                 },
                 Table: {
-                  cellPaddingBlock: 8,
+                  cellPaddingBlock: 10,
+                  borderColor: "#e5e5e5",
                   headerBg: "#e9f1ff",
                 },
               },
               token: {
                 borderRadius: 4,
                 colorPrimary: "#0041ae",
+                colorBorder: "#e5e5e5",
               },
             }}
           >

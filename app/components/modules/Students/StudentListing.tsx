@@ -129,6 +129,12 @@ const StudentListing = (props: Props) => {
         buttonTitle="Add Student"
         filterFields={filterFields}
         createLink={ROUTES.students.create}
+        pageSize={10}
+        currentPage={1}
+        total={studentData.length}
+        onPageChange={(page, pageSize) => {
+          console.log(page, pageSize);
+        }}
       />
       <CommonSuccessModal
         visible={successModal}
