@@ -3,6 +3,8 @@ import { Plus_Jakarta_Sans } from "next/font/google";
 import { AntdRegistry } from "@ant-design/nextjs-registry";
 import { ConfigProvider } from "antd";
 import "./globals.css";
+import ReactQueryProvider from "./QueryClientProvider";
+import { StrictMode } from "react";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   variable: "--font-plus-jakarta-sans",
@@ -58,7 +60,9 @@ export default function RootLayout({
               },
             }}
           >
-            {children}
+            <StrictMode>
+              <ReactQueryProvider>{children}</ReactQueryProvider>
+            </StrictMode>
           </ConfigProvider>
         </AntdRegistry>
       </body>

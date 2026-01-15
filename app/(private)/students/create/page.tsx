@@ -1,5 +1,6 @@
 "use client";
 
+import { useStudentsControllerCreate } from "@/app/api/endpoints/students/students";
 import CommonErrorModal from "@/app/components/common/CommonErrorModal";
 import CommonSuccessModal from "@/app/components/common/CommonSuccessModal";
 import StudentForm from "@/app/components/modules/Students/StudentForm";
@@ -12,9 +13,11 @@ const page = (props: Props) => {
   const [errorModal, setErrorVisible] = useState(false);
   const [errors, setErrors] = useState([]);
 
+  const { mutateAsync: createStudent } = useStudentsControllerCreate();
+
   const onSubmit = (values: any) => {
     try {
-      console.log({ values });
+      createStudent(values);
       setSuccessVisible(true);
     } catch (error) {
       setErrorVisible(true);
