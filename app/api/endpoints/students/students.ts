@@ -30,7 +30,7 @@ import { axiosInstance } from "../../axios";
  */
 export const studentsControllerCreate = (
   createStudentDto: CreateStudentDto,
-  signal?: AbortSignal
+  signal?: AbortSignal,
 ) => {
   return axiosInstance<void>({
     url: `http://localhost:3001/students`,
@@ -43,7 +43,7 @@ export const studentsControllerCreate = (
 
 export const getStudentsControllerCreateMutationOptions = <
   TError = void,
-  TContext = unknown
+  TContext = unknown,
 >(options?: {
   mutation?: UseMutationOptions<
     Awaited<ReturnType<typeof studentsControllerCreate>>,
@@ -96,7 +96,7 @@ export const useStudentsControllerCreate = <TError = void, TContext = unknown>(
       TContext
     >;
   },
-  queryClient?: QueryClient
+  queryClient?: QueryClient,
 ): UseMutationResult<
   Awaited<ReturnType<typeof studentsControllerCreate>>,
   TError,
@@ -124,7 +124,7 @@ export const getStudentsControllerFindAllQueryKey = () => {
 
 export const getStudentsControllerFindAllQueryOptions = <
   TData = Awaited<ReturnType<typeof studentsControllerFindAll>>,
-  TError = void
+  TError = void,
 >(options?: {
   query?: Partial<
     UseQueryOptions<
@@ -157,7 +157,7 @@ export type StudentsControllerFindAllQueryError = void;
 
 export function useStudentsControllerFindAll<
   TData = Awaited<ReturnType<typeof studentsControllerFindAll>>,
-  TError = void
+  TError = void,
 >(
   options: {
     query: Partial<
@@ -176,13 +176,13 @@ export function useStudentsControllerFindAll<
         "initialData"
       >;
   },
-  queryClient?: QueryClient
+  queryClient?: QueryClient,
 ): DefinedUseQueryResult<TData, TError> & {
   queryKey: DataTag<QueryKey, TData, TError>;
 };
 export function useStudentsControllerFindAll<
   TData = Awaited<ReturnType<typeof studentsControllerFindAll>>,
-  TError = void
+  TError = void,
 >(
   options?: {
     query?: Partial<
@@ -201,13 +201,13 @@ export function useStudentsControllerFindAll<
         "initialData"
       >;
   },
-  queryClient?: QueryClient
+  queryClient?: QueryClient,
 ): UseQueryResult<TData, TError> & {
   queryKey: DataTag<QueryKey, TData, TError>;
 };
 export function useStudentsControllerFindAll<
   TData = Awaited<ReturnType<typeof studentsControllerFindAll>>,
-  TError = void
+  TError = void,
 >(
   options?: {
     query?: Partial<
@@ -218,7 +218,7 @@ export function useStudentsControllerFindAll<
       >
     >;
   },
-  queryClient?: QueryClient
+  queryClient?: QueryClient,
 ): UseQueryResult<TData, TError> & {
   queryKey: DataTag<QueryKey, TData, TError>;
 };
@@ -228,7 +228,7 @@ export function useStudentsControllerFindAll<
 
 export function useStudentsControllerFindAll<
   TData = Awaited<ReturnType<typeof studentsControllerFindAll>>,
-  TError = void
+  TError = void,
 >(
   options?: {
     query?: Partial<
@@ -239,7 +239,7 @@ export function useStudentsControllerFindAll<
       >
     >;
   },
-  queryClient?: QueryClient
+  queryClient?: QueryClient,
 ): UseQueryResult<TData, TError> & {
   queryKey: DataTag<QueryKey, TData, TError>;
 } {
@@ -272,7 +272,7 @@ export const getStudentsControllerFindOneQueryKey = (id?: string) => {
 
 export const getStudentsControllerFindOneQueryOptions = <
   TData = Awaited<ReturnType<typeof studentsControllerFindOne>>,
-  TError = void
+  TError = void,
 >(
   id: string,
   options?: {
@@ -283,7 +283,7 @@ export const getStudentsControllerFindOneQueryOptions = <
         TData
       >
     >;
-  }
+  },
 ) => {
   const { query: queryOptions } = options ?? {};
 
@@ -313,7 +313,7 @@ export type StudentsControllerFindOneQueryError = void;
 
 export function useStudentsControllerFindOne<
   TData = Awaited<ReturnType<typeof studentsControllerFindOne>>,
-  TError = void
+  TError = void,
 >(
   id: string,
   options: {
@@ -333,13 +333,13 @@ export function useStudentsControllerFindOne<
         "initialData"
       >;
   },
-  queryClient?: QueryClient
+  queryClient?: QueryClient,
 ): DefinedUseQueryResult<TData, TError> & {
   queryKey: DataTag<QueryKey, TData, TError>;
 };
 export function useStudentsControllerFindOne<
   TData = Awaited<ReturnType<typeof studentsControllerFindOne>>,
-  TError = void
+  TError = void,
 >(
   id: string,
   options?: {
@@ -359,13 +359,13 @@ export function useStudentsControllerFindOne<
         "initialData"
       >;
   },
-  queryClient?: QueryClient
+  queryClient?: QueryClient,
 ): UseQueryResult<TData, TError> & {
   queryKey: DataTag<QueryKey, TData, TError>;
 };
 export function useStudentsControllerFindOne<
   TData = Awaited<ReturnType<typeof studentsControllerFindOne>>,
-  TError = void
+  TError = void,
 >(
   id: string,
   options?: {
@@ -377,7 +377,7 @@ export function useStudentsControllerFindOne<
       >
     >;
   },
-  queryClient?: QueryClient
+  queryClient?: QueryClient,
 ): UseQueryResult<TData, TError> & {
   queryKey: DataTag<QueryKey, TData, TError>;
 };
@@ -387,7 +387,7 @@ export function useStudentsControllerFindOne<
 
 export function useStudentsControllerFindOne<
   TData = Awaited<ReturnType<typeof studentsControllerFindOne>>,
-  TError = void
+  TError = void,
 >(
   id: string,
   options?: {
@@ -399,7 +399,7 @@ export function useStudentsControllerFindOne<
       >
     >;
   },
-  queryClient?: QueryClient
+  queryClient?: QueryClient,
 ): UseQueryResult<TData, TError> & {
   queryKey: DataTag<QueryKey, TData, TError>;
 } {
@@ -420,7 +420,7 @@ export function useStudentsControllerFindOne<
  */
 export const studentsControllerUpdate = (
   id: string,
-  updateStudentDto: UpdateStudentDto
+  updateStudentDto: UpdateStudentDto,
 ) => {
   return axiosInstance<void>({
     url: `http://localhost:3001/students/${id}`,
@@ -432,7 +432,7 @@ export const studentsControllerUpdate = (
 
 export const getStudentsControllerUpdateMutationOptions = <
   TError = void,
-  TContext = unknown
+  TContext = unknown,
 >(options?: {
   mutation?: UseMutationOptions<
     Awaited<ReturnType<typeof studentsControllerUpdate>>,
@@ -485,7 +485,7 @@ export const useStudentsControllerUpdate = <TError = void, TContext = unknown>(
       TContext
     >;
   },
-  queryClient?: QueryClient
+  queryClient?: QueryClient,
 ): UseMutationResult<
   Awaited<ReturnType<typeof studentsControllerUpdate>>,
   TError,
@@ -508,7 +508,7 @@ export const studentsControllerRemove = (id: string) => {
 
 export const getStudentsControllerRemoveMutationOptions = <
   TError = void,
-  TContext = unknown
+  TContext = unknown,
 >(options?: {
   mutation?: UseMutationOptions<
     Awaited<ReturnType<typeof studentsControllerRemove>>,
@@ -561,7 +561,7 @@ export const useStudentsControllerRemove = <TError = void, TContext = unknown>(
       TContext
     >;
   },
-  queryClient?: QueryClient
+  queryClient?: QueryClient,
 ): UseMutationResult<
   Awaited<ReturnType<typeof studentsControllerRemove>>,
   TError,

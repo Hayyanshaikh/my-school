@@ -16,15 +16,31 @@ const page = (props: Props) => {
   const { mutateAsync: createStudent } = useStudentsControllerCreate();
 
   const onSubmit = (values: any) => {
-    try {
-      createStudent(values);
-      setSuccessVisible(true);
-    } catch (error) {
-      setErrorVisible(true);
-      // FIXME: Type error
-      // @ts-ignore
-      setErrors(error);
-    }
+    createStudent({
+      data: {
+        admissionDate: values.admissionDate,
+        birthDate: values.birthDate,
+        classId: values.classId,
+        sectionId: values.sectionId,
+        rollNo: Number(values.rollNo),
+        name: values.name,
+        age: Number(values.age),
+        gender: values.gender,
+        fatherName: values.fatherName,
+        motherName: values.motherName,
+        phone: values.phone,
+        email: values.email,
+        address: values.address,
+        isActive: values.isActive,
+      },
+    })
+      .then(() => {
+        setSuccessVisible(true);
+      })
+      .catch((error) => {
+        setErrorVisible(true);
+        setErrors(error.response.data.errors);
+      });
   };
   return (
     <div>

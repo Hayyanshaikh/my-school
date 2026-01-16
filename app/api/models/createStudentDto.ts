@@ -9,16 +9,16 @@
 export interface CreateStudentDto {
   name: string;
   age: number;
-  birthDate: string;
+  birthDate?: string;
   gender: string;
   classId: string;
   sectionId: string;
   admissionDate: string;
   rollNo: number;
-  fatherName: string;
-  motherName: string;
-  phone: string;
-  email: string;
-  address: string;
+  fatherName?: string;
+  motherName?: string;
+  phone?: string;
+  email?: string;
+  address?: string;
   isActive: boolean;
 }

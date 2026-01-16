@@ -13,6 +13,7 @@ import {
   GENDER_OPTIONS,
   ROUTES,
   SECTION_OPTIONS,
+  STATUS_OPTIONS,
 } from "@/app/utils/constant";
 
 type Props = {
@@ -58,16 +59,13 @@ const StudentForm = ({ onSubmit, isUpdate }: Props) => {
         </div>
       </div>
       <Form
-        onFinishFailed={handleFinishFailed}
         form={form}
         layout="vertical"
         onFinish={handleFinish}
+        onFinishFailed={handleFinishFailed}
         className="border border-gray-300 rounded-md p-5! space-y-5"
       >
         <CommonFormLayout title="Basic Information">
-          <Col xs={24} sm={12} md={12} lg={6}>
-            <CommonInput name="code" disabled label="Code" isRequired={false} />
-          </Col>
           <Col xs={24} sm={12} md={12} lg={6}>
             <CommonInput
               name="name"
@@ -76,20 +74,31 @@ const StudentForm = ({ onSubmit, isUpdate }: Props) => {
               isRequired
             />
           </Col>
+
+          <Col xs={24} sm={12} md={12} lg={6}>
+            <CommonInput
+              name="age"
+              label="Age"
+              type="number"
+              placeholder="Enter age"
+              isRequired
+            />
+          </Col>
+
           <Col xs={24} sm={12} md={12} lg={6}>
             <CommonDatePicker
-              name="dob"
+              name="birthDate"
               label="Date of Birth"
               isRequired={false}
             />
           </Col>
+
           <Col xs={24} sm={12} md={12} lg={6}>
             <CommonSelect
               name="gender"
               label="Gender"
-              placeholder="Select Gender"
               options={GENDER_OPTIONS}
-              isRequired={false}
+              isRequired
             />
           </Col>
         </CommonFormLayout>
@@ -97,22 +106,22 @@ const StudentForm = ({ onSubmit, isUpdate }: Props) => {
         <CommonFormLayout title="Academic Details">
           <Col xs={24} sm={12} md={12} lg={6}>
             <CommonSelect
-              name="class"
+              name="classId"
               label="Class"
-              placeholder="Select Class"
               options={CLASS_OPTIONS}
               isRequired
             />
           </Col>
+
           <Col xs={24} sm={12} md={12} lg={6}>
             <CommonSelect
-              name="section"
+              name="sectionId"
               label="Section"
-              placeholder="Select Section"
               options={SECTION_OPTIONS}
               isRequired
             />
           </Col>
+
           <Col xs={24} sm={12} md={12} lg={6}>
             <CommonDatePicker
               name="admissionDate"
@@ -120,12 +129,13 @@ const StudentForm = ({ onSubmit, isUpdate }: Props) => {
               isRequired
             />
           </Col>
+
           <Col xs={24} sm={12} md={12} lg={6}>
             <CommonInput
-              name="roll"
+              name="rollNo"
               label="Roll No"
-              placeholder="Enter roll number"
               type="number"
+              placeholder="Enter roll number"
               isRequired
             />
           </Col>
@@ -137,9 +147,10 @@ const StudentForm = ({ onSubmit, isUpdate }: Props) => {
               name="fatherName"
               label="Father Name"
               placeholder="Enter father name"
-              isRequired
+              isRequired={false}
             />
           </Col>
+
           <Col xs={24} sm={12} md={12} lg={6}>
             <CommonInput
               name="motherName"
@@ -148,29 +159,42 @@ const StudentForm = ({ onSubmit, isUpdate }: Props) => {
               isRequired={false}
             />
           </Col>
+
           <Col xs={24} sm={12} md={12} lg={6}>
             <CommonInput
-              name="contactNumber"
-              label="Contact Number"
-              placeholder="Enter contact number"
-              type="number"
-              isRequired
+              name="phone"
+              label="Phone"
+              placeholder="Enter phone number"
+              isRequired={false}
             />
           </Col>
+
           <Col xs={24} sm={12} md={12} lg={6}>
             <CommonInput
               name="email"
               label="Email"
-              placeholder="Enter email"
               type="email"
+              placeholder="Enter email"
               isRequired={false}
             />
           </Col>
+
           <Col xs={24} sm={12} md={12} lg={6}>
             <CommonInput
               name="address"
               label="Address"
               placeholder="Enter address"
+              isRequired={false}
+            />
+          </Col>
+        </CommonFormLayout>
+
+        <CommonFormLayout title="Status">
+          <Col xs={24} sm={12} md={12} lg={6}>
+            <CommonSelect
+              name="isActive"
+              label="Status"
+              options={STATUS_OPTIONS}
               isRequired={false}
             />
           </Col>
