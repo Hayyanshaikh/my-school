@@ -12,6 +12,11 @@ export const ROUTES = {
     create: "/classes/create",
     update: "/classes/update/:id",
   },
+  sections: {
+    listing: "/sections",
+    create: "/sections/create",
+    update: "/sections/update/:id",
+  },
 };
 
 export const menuItems = [
@@ -30,8 +35,8 @@ export const menuItems = [
 ];
 
 export const STATUS_OPTIONS = [
-  { label: "Active", value: "Active" },
-  { label: "Inactive", value: "Inactive" },
+  { label: "Active", value: "ACTIVE" },
+  { label: "Inactive", value: "INACTIVE" },
 ];
 
 export const studentData = Array.from({ length: 100 }, (_, i) => {
@@ -75,8 +80,8 @@ export const classData = Array.from({ length: 20 }, (_, i) => {
 });
 
 export const GENDER_OPTIONS = [
-  { label: "Male", value: "Male" },
-  { label: "Female", value: "Female" },
+  { label: "Male", value: "MALE" },
+  { label: "Female", value: "FEMALE" },
 ];
 
 export const CLASS_OPTIONS = [

@@ -25,6 +25,7 @@ export type FilterTableProps = {
   columns: ColumnType[];
   dataSource: any[];
   createLink?: string;
+  loading?: boolean;
   filterFields?: FilterFields[];
   pageSize?: number;
   currentPage?: number;
@@ -37,6 +38,7 @@ const FilterTable = ({
   buttonTitle = "Add New",
   columns,
   dataSource,
+  loading,
   createLink = "",
   filterFields = [],
   pageSize = 10,
@@ -95,6 +97,7 @@ const FilterTable = ({
       </div>
 
       <Table
+        loading={loading}
         bordered
         className="border-b border-gray-100"
         columns={columns}

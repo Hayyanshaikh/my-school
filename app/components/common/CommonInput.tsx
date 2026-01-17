@@ -12,6 +12,7 @@ type Props = {
   type?: "text" | "password" | "email" | "number";
   disabled?: boolean;
   maxLength?: number;
+  autoFocus?: boolean;
   allowClear?: boolean;
   size?: "small" | "middle" | "large";
 };
@@ -21,6 +22,7 @@ const CommonInput = ({
   label,
   rules = [],
   isRequired = true,
+  autoFocus = false,
   placeholder = "Type here",
   type = "text",
   disabled = false,
@@ -47,6 +49,7 @@ const CommonInput = ({
         disabled={disabled}
         maxLength={maxLength}
         allowClear={allowClear}
+        autoFocus={autoFocus}
         size={size}
       />
     </Form.Item>

@@ -9,3 +9,9 @@ export interface CommonModalProps {
   okText?: string;
   cancelText?: string;
 }
+
+export interface Section {
+  id: string;
+  name: string;
+  status: string;
+}
