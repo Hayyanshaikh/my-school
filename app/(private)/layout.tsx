@@ -6,12 +6,16 @@ import Sider from "antd/es/layout/Sider";
 import React from "react";
 import SidebarMenu from "../components/layout/SidebarMenu";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 type Props = {
   children: React.ReactNode;
 };
 
 const layout = ({ children }: Props) => {
+  const path = usePathname(); // /academix
+  const last = path.split("/").filter(Boolean).pop();
+
   return (
     <Layout className="flex h-screen ">
       <Sider
@@ -27,8 +31,14 @@ const layout = ({ children }: Props) => {
         <SidebarMenu />
       </Sider>
       <Layout>
-        <Header className="border-b border-black/10">Header</Header>
-        <Content className="h-full! overflow-auto! p-6 flex flex-col">
+        {last === "academix" ? (
+          <></>
+        ) : (
+          <Header className="border-b border-black/10">Header</Header>
+        )}
+        <Content
+          className={`h-full! overflow-auto! ${last === "academix" ? "p-0" : "p-6"} flex flex-col`}
+        >
           {children}
         </Content>
         {/* <Footer>Footer</Footer> */}

@@ -21,6 +21,7 @@ export const ROUTES = {
 
 export const menuItems = [
   { label: "Dashboard", link: "/" },
+  { label: "Academix AI", link: "/academix" },
   { label: "Students List", link: "/students" },
   { label: "Classes List", link: "/classes" },
   { label: "Sections List", link: "/sections" },

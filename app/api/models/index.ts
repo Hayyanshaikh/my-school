@@ -6,12 +6,16 @@
  * OpenAPI spec version: 1.0
  */
 
-export * from './createSectionDto';
-export * from './createStudentDto';
-export * from './findAllSectionResponseDto';
-export * from './findAllSectionResponseDtoMetadata';
-export * from './findOneSectionResponseDto';
-export * from './metadataDto';
-export * from './responseSectionDto';
-export * from './updateSectionDto';
-export * from './updateStudentDto';
+export * from "./createAcademixDto";
+export * from "./createSectionDto";
+export * from "./createStudentDto";
+export * from "./findAllSectionResponseDto";
+export * from "./findAllSectionResponseDtoMetadata";
+export * from "./findOneSectionResponseDto";
+export * from "./messageDto";
+export * from "./metadataDto";
+export * from "./responseAcademixDto";
+export * from "./responseSectionDto";
+export * from "./updateAcademixDto";
+export * from "./updateSectionDto";
+export * from "./updateStudentDto";

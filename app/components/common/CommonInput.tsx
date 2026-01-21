@@ -12,6 +12,8 @@ type Props = {
   type?: "text" | "password" | "email" | "number";
   disabled?: boolean;
   maxLength?: number;
+  className?: string;
+  inputClassName?: string;
   autoFocus?: boolean;
   allowClear?: boolean;
   size?: "small" | "middle" | "large";
@@ -26,6 +28,8 @@ const CommonInput = ({
   placeholder = "Type here",
   type = "text",
   disabled = false,
+  className = "",
+  inputClassName = "",
   maxLength,
   allowClear = true,
   size = "middle",
@@ -34,9 +38,13 @@ const CommonInput = ({
     <Form.Item
       layout="vertical"
       name={name}
-      label={<span className="text-gray-600 font-medium">{label}</span>}
+      label={
+        label ? (
+          <span className="text-gray-600 font-medium">{label}</span>
+        ) : null
+      }
       required={isRequired}
-      className="mb-0!"
+      className={`mb-0! ${className}`}
       rules={
         isRequired
           ? [{ required: true, message: `${label} is required.` }, ...rules]
@@ -49,7 +57,9 @@ const CommonInput = ({
         disabled={disabled}
         maxLength={maxLength}
         allowClear={allowClear}
+        autoComplete="off"
         autoFocus={autoFocus}
+        className={inputClassName}
         size={size}
       />
     </Form.Item>

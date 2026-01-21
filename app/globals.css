@@ -122,3 +122,43 @@
 .ant-form-item-label {
   padding-bottom: 4px !important;
 }
+
+.gradient-bg {
+  background: linear-gradient(215deg,
+      #ffd4e8 0%,
+      #ffb6d5 20%,
+      #f6c6ff 40%,
+      #d7b3ff 60%,
+      #caa4ff 80%,
+      #b39bff 100%) 0 0 / 200% 200% fixed !important;
+  animation: gradientMove 8s ease infinite !important;
+}
+
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50% !important;
+  }
+
+  50% {
+    background-position: 100% 50% !important;
+  }
+
+  100% {
+    background-position: 0% 50% !important;
+  }
+}
+
+
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
