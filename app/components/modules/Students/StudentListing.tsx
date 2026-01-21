@@ -4,7 +4,12 @@ import CommonActionButtons from "@/app/components/common/CommonActionButtons";
 import CommonStatusTag from "@/app/components/common/CommonStatusTag";
 import { FilterFields } from "@/app/components/FilterTable/FilterTable";
 import FilterTable from "@/app/components/FilterTable/FilterTableWrapper";
-import { DISPLAY_DATE, ROUTES, STATUS_OPTIONS } from "@/app/utils/constant";
+import {
+  DISPLAY_DATE,
+  ROUTES,
+  STATUS_OPTIONS,
+  studentData,
+} from "@/app/utils/constant";
 import { TableColumnType } from "antd";
 import dayjs from "dayjs";
 import { useState } from "react";
@@ -23,7 +28,7 @@ const StudentListing = (props: Props) => {
   const [deleteId, setDeleteId] = useState<string | null>(null);
 
   const { data: studentDataRes } = useStudentsControllerFindAll();
-  const studentData = studentDataRes?.data;
+  // const studentData = studentDataRes?.data || [];
 
   const columns: TableColumnType[] = [
     {

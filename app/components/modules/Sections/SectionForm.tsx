@@ -43,7 +43,7 @@ const SectionForm = ({
       <div className="flex justify-between mb-5">
         <CommonTitle
           isMargin={false}
-          title={isUpdate ? entityData?.name : "Create Section"}
+          title={isUpdate ? entityData?.name || "" : "Create Section"}
         />
         <div className="flex gap-2">
           <CommonButton
