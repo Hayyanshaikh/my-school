@@ -8,6 +8,7 @@ import { DownOutlined } from "@ant-design/icons";
 type ItemType = {
   label: string;
   key: string;
+  onClick?: () => void;
 };
 
 type Props = {

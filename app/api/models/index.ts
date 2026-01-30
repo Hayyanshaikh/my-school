@@ -8,10 +8,15 @@
 
 export * from './createSectionDto';
 export * from './createStudentDto';
+export * from './createUserDto';
 export * from './findAllSectionResponseDto';
 export * from './findAllSectionResponseDtoMetadata';
 export * from './findOneSectionResponseDto';
+export * from './loginDto';
+export * from './loginResponseData';
+export * from './loginResponseDto';
 export * from './metadataDto';
 export * from './responseSectionDto';
 export * from './updateSectionDto';
 export * from './updateStudentDto';
+export * from './updateUserDto';
