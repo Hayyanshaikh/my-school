@@ -15,6 +15,8 @@ type Props = {
   autoFocus?: boolean;
   allowClear?: boolean;
   size?: "small" | "middle" | "large";
+  className?: string;
+  inputClassName?: string;
 };
 
 const CommonInput = ({
@@ -29,29 +31,54 @@ const CommonInput = ({
   maxLength,
   allowClear = true,
   size = "middle",
+  className,
+  inputClassName,
 }: Props) => {
+  const renderInput = () => {
+    switch (type) {
+      case "password":
+        return (
+          <Input.Password
+            placeholder={disabled ? "" : placeholder}
+            type={type}
+            disabled={disabled}
+            maxLength={maxLength}
+            allowClear={allowClear}
+            autoFocus={autoFocus}
+            size={size}
+            className={inputClassName}
+          />
+        );
+      default:
+        return (
+          <Input
+            placeholder={disabled ? "" : placeholder}
+            type={type}
+            disabled={disabled}
+            maxLength={maxLength}
+            allowClear={allowClear}
+            autoFocus={autoFocus}
+            size={size}
+            className={inputClassName}
+          />
+        );
+    }
+  };
+
   return (
     <Form.Item
       layout="vertical"
       name={name}
       label={<span className="text-gray-600 font-medium">{label}</span>}
       required={isRequired}
-      className="mb-0!"
+      className={`${className} mb-0!`}
       rules={
         isRequired
           ? [{ required: true, message: `${label} is required.` }, ...rules]
           : rules
       }
     >
-      <Input
-        placeholder={disabled ? "" : placeholder}
-        type={type}
-        disabled={disabled}
-        maxLength={maxLength}
-        allowClear={allowClear}
-        autoFocus={autoFocus}
-        size={size}
-      />
+      {renderInput()}
     </Form.Item>
   );
 };

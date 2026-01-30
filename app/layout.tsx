@@ -49,14 +49,14 @@ export default function RootLayout({
                 },
                 Table: {
                   cellPaddingBlock: 10,
-                  borderColor: "#e5e5e5",
+                  borderColor: "#cccccc",
                   headerBg: "#e9f1ff",
                 },
               },
               token: {
                 borderRadius: 4,
                 colorPrimary: "#0041ae",
-                colorBorder: "#e5e5e5",
+                colorBorder: "#cccccc",
               },
             }}
           >
