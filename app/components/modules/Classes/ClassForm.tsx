@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useEffect } from "react";
 import { Form, Col } from "antd";
 import CommonInput from "../../common/CommonInput";
 import CommonSelect from "../../common/CommonSelect";
@@ -16,6 +16,10 @@ type Props = {
 
 const ClassForm = ({ onSubmit, isUpdate }: Props) => {
   const [form] = Form.useForm();
+
+  useEffect(() => {
+    form.setFieldValue("status", "ACTIVE");
+  }, []);
 
   return (
     <div>
@@ -47,25 +51,11 @@ const ClassForm = ({ onSubmit, isUpdate }: Props) => {
         {/* Basic Information */}
         <CommonFormLayout title="Basic Information">
           <Col lg={6}>
-            <CommonInput isRequired={false} name="code" label="Code" disabled />
-          </Col>
-
-          <Col lg={6}>
             <CommonInput
               name="name"
               label="Name"
               placeholder="Enter name"
               isRequired
-            />
-          </Col>
-
-          <Col lg={6}>
-            <CommonSelect
-              name="shift"
-              label="Shift"
-              placeholder="Select shift"
-              options={[]}
-              isRequired={false}
             />
           </Col>
 
@@ -84,17 +74,6 @@ const ClassForm = ({ onSubmit, isUpdate }: Props) => {
         <CommonFormLayout title="Academic Setup">
           <Col lg={6}>
             <CommonSelect
-              name="sections"
-              label="Sections"
-              placeholder="Select sections"
-              options={SECTION_OPTIONS}
-              mode="multiple"
-              isRequired
-            />
-          </Col>
-
-          <Col lg={6}>
-            <CommonSelect
               name="classTeacher"
               label="Class Teacher"
               placeholder="Select teacher"
@@ -104,11 +83,22 @@ const ClassForm = ({ onSubmit, isUpdate }: Props) => {
           </Col>
 
           <Col lg={6}>
+            <CommonSelect
+              name="sections"
+              label="Sections"
+              placeholder="Select sections"
+              options={SECTION_OPTIONS}
+              mode="multiple"
+              isRequired={false}
+            />
+          </Col>
+
+          <Col lg={6}>
             <CommonInput
               name="roomNo"
               label="Room No"
               placeholder="Enter room number"
-              isRequired
+              isRequired={false}
             />
           </Col>
 
