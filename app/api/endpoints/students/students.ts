@@ -44,7 +44,7 @@ export const studentsControllerCreate = (
       
       
       return axiosInstance<void>(
-      {url: `http://localhost:5001/students`, method: 'POST',
+      {url: `http://localhost:3001/students`, method: 'POST',
       headers: {'Content-Type': 'application/json', },
       data: createStudentDto, signal
     },
@@ -108,7 +108,7 @@ export const studentsControllerFindAll = (
       
       
       return axiosInstance<void>(
-      {url: `http://localhost:5001/students`, method: 'GET', signal
+      {url: `http://localhost:3001/students`, method: 'GET', signal
     },
       );
     }
@@ -118,7 +118,7 @@ export const studentsControllerFindAll = (
 
 export const getStudentsControllerFindAllQueryKey = () => {
     return [
-    `http://localhost:5001/students`
+    `http://localhost:3001/students`
     ] as const;
     }
 
@@ -199,7 +199,7 @@ export const studentsControllerFindOne = (
       
       
       return axiosInstance<void>(
-      {url: `http://localhost:5001/students/${id}`, method: 'GET', signal
+      {url: `http://localhost:3001/students/${id}`, method: 'GET', signal
     },
       );
     }
@@ -209,7 +209,7 @@ export const studentsControllerFindOne = (
 
 export const getStudentsControllerFindOneQueryKey = (id?: string,) => {
     return [
-    `http://localhost:5001/students/${id}`
+    `http://localhost:3001/students/${id}`
     ] as const;
     }
 
@@ -290,7 +290,7 @@ export const studentsControllerUpdate = (
       
       
       return axiosInstance<void>(
-      {url: `http://localhost:5001/students/${id}`, method: 'PATCH',
+      {url: `http://localhost:3001/students/${id}`, method: 'PATCH',
       headers: {'Content-Type': 'application/json', },
       data: updateStudentDto
     },
@@ -353,7 +353,7 @@ export const studentsControllerRemove = (
       
       
       return axiosInstance<void>(
-      {url: `http://localhost:5001/students/${id}`, method: 'DELETE'
+      {url: `http://localhost:3001/students/${id}`, method: 'DELETE'
     },
       );
     }

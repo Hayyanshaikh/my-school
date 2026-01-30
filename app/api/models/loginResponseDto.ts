@@ -5,8 +5,8 @@
  * My School API documentation
  * OpenAPI spec version: 1.0
  */
-import type { MetadataDto } from "./metadataDto";
-import type { LoginResponseData } from "./loginResponseData";
+import type { MetadataDto } from './metadataDto';
+import type { LoginResponseData } from './loginResponseData';
 
 export interface LoginResponseDto {
   message: string;

@@ -46,7 +46,7 @@ export const sectionsControllerCreate = (
       
       
       return axiosInstance<void>(
-      {url: `http://localhost:5001/sections`, method: 'POST',
+      {url: `http://localhost:3001/sections`, method: 'POST',
       headers: {'Content-Type': 'application/json', },
       data: createSectionDto, signal
     },
@@ -110,7 +110,7 @@ export const sectionsControllerFindAll = (
       
       
       return axiosInstance<FindAllSectionResponseDto>(
-      {url: `http://localhost:5001/sections`, method: 'GET', signal
+      {url: `http://localhost:3001/sections`, method: 'GET', signal
     },
       );
     }
@@ -120,7 +120,7 @@ export const sectionsControllerFindAll = (
 
 export const getSectionsControllerFindAllQueryKey = () => {
     return [
-    `http://localhost:5001/sections`
+    `http://localhost:3001/sections`
     ] as const;
     }
 
@@ -201,7 +201,7 @@ export const sectionsControllerFindOne = (
       
       
       return axiosInstance<FindOneSectionResponseDto>(
-      {url: `http://localhost:5001/sections/${id}`, method: 'GET', signal
+      {url: `http://localhost:3001/sections/${id}`, method: 'GET', signal
     },
       );
     }
@@ -211,7 +211,7 @@ export const sectionsControllerFindOne = (
 
 export const getSectionsControllerFindOneQueryKey = (id?: string,) => {
     return [
-    `http://localhost:5001/sections/${id}`
+    `http://localhost:3001/sections/${id}`
     ] as const;
     }
 
@@ -292,7 +292,7 @@ export const sectionsControllerUpdate = (
       
       
       return axiosInstance<void>(
-      {url: `http://localhost:5001/sections/${id}`, method: 'PATCH',
+      {url: `http://localhost:3001/sections/${id}`, method: 'PATCH',
       headers: {'Content-Type': 'application/json', },
       data: updateSectionDto
     },
@@ -355,7 +355,7 @@ export const sectionsControllerRemove = (
       
       
       return axiosInstance<void>(
-      {url: `http://localhost:5001/sections/${id}`, method: 'DELETE'
+      {url: `http://localhost:3001/sections/${id}`, method: 'DELETE'
     },
       );
     }
