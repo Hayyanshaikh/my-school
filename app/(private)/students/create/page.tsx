@@ -13,7 +13,8 @@ const page = (props: Props) => {
   const [errorModal, setErrorVisible] = useState(false);
   const [errors, setErrors] = useState([]);
 
-  const { mutateAsync: createStudent } = useStudentsControllerCreate();
+  const { mutateAsync: createStudent, isPending: creating } =
+    useStudentsControllerCreate();
 
   const onSubmit = (values: any) => {
     createStudent({
@@ -31,7 +32,7 @@ const page = (props: Props) => {
         phone: values.phone,
         email: values.email,
         address: values.address,
-        isActive: values.isActive,
+        isActive: values.isActive === "ACTIVE",
       },
     })
       .then(() => {
@@ -44,7 +45,7 @@ const page = (props: Props) => {
   };
   return (
     <div>
-      <StudentForm onSubmit={onSubmit} />
+      <StudentForm loading={creating} onSubmit={onSubmit} />
       <CommonSuccessModal
         visible={successModal}
         setVisible={setSuccessVisible}

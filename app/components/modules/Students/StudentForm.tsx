@@ -19,9 +19,10 @@ import {
 type Props = {
   onSubmit: (values: any) => void;
   isUpdate?: boolean;
+  loading: boolean;
 };
 
-const StudentForm = ({ onSubmit, isUpdate }: Props) => {
+const StudentForm = ({ onSubmit, isUpdate, loading }: Props) => {
   const [form] = Form.useForm();
 
   const handleFinish = (values: any) => {
@@ -48,6 +49,7 @@ const StudentForm = ({ onSubmit, isUpdate }: Props) => {
             title="Save"
             type="primary"
             className="flex-1"
+            loading={loading}
           />
 
           <CommonButton
@@ -86,19 +88,19 @@ const StudentForm = ({ onSubmit, isUpdate }: Props) => {
           </Col>
 
           <Col xs={24} sm={12} md={12} lg={6}>
-            <CommonDatePicker
-              name="birthDate"
-              label="Date of Birth"
-              isRequired={false}
-            />
-          </Col>
-
-          <Col xs={24} sm={12} md={12} lg={6}>
             <CommonSelect
               name="gender"
               label="Gender"
               options={GENDER_OPTIONS}
               isRequired
+            />
+          </Col>
+
+          <Col xs={24} sm={12} md={12} lg={6}>
+            <CommonDatePicker
+              name="birthDate"
+              label="Date of Birth"
+              isRequired={false}
             />
           </Col>
         </CommonFormLayout>
@@ -195,7 +197,7 @@ const StudentForm = ({ onSubmit, isUpdate }: Props) => {
               name="isActive"
               label="Status"
               options={STATUS_OPTIONS}
-              isRequired={false}
+              isRequired
             />
           </Col>
         </CommonFormLayout>

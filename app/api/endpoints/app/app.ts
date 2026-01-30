@@ -32,7 +32,7 @@ export const appControllerGetHello = (
       
       
       return axiosInstance<void>(
-      {url: `http://localhost:3001/`, method: 'GET', signal
+      {url: `http://localhost:5001/`, method: 'GET', signal
     },
       );
     }
@@ -42,7 +42,7 @@ export const appControllerGetHello = (
 
 export const getAppControllerGetHelloQueryKey = () => {
     return [
-    `http://localhost:3001/`
+    `http://localhost:5001/`
     ] as const;
     }
 
